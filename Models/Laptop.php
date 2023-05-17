@@ -4,4 +4,8 @@
       parent::__construct($brand, $model, $motherboard, $ram, $cpu, $gpu, $storage);
       $this -> powerSource = $powerSource;
     }
+
+    public function setDeviceType($computer) {
+      $this -> deviceType = "Laptop";
+    }
   }

@@ -7,4 +7,8 @@
       $this -> mouse = $mouse;
       $this -> powerSource = $powerSource;
     }
+
+    public function setDeviceType($computer) {
+      $this -> deviceType = "Desktop";
+    }
   }

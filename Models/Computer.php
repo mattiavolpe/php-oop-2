@@ -1,5 +1,7 @@
 <?php
   class Computer {
+    protected string $deviceType;
+
     public function __construct(public string $brand, public string $model, public Motherboard $motherboard, public RAM $ram, public CPU $cpu, public GPU $gpu, public Storage $storage) {
       $this -> brand = $brand;
       $this -> model = $model;
@@ -10,9 +12,15 @@
       $this -> storage = $storage;
     }
 
-    public function getDeviceType($computer) {
+    public function setDeviceType($computer) {
       if($computer instanceof Desktop) {
-        return "Desktop";
-      } return "Laptop";
+        $this -> deviceType = "Desktop";
+      } else {
+        $this -> deviceType = "Laptop";
+      }
+    }
+
+    public function getDeviceType() {
+      return $this -> deviceType;
     }
   }

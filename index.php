@@ -25,6 +25,10 @@
   include __DIR__ . "/Models/Mouse.php";
   include __DIR__ . "/Models/PowerSource.php";
   include __DIR__ . "/Databases/computers.php";
+  
+  foreach ($computers as $computer) {
+    $computer -> setDeviceType($computer);
+  }
 
 ?>
 

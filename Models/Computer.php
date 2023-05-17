@@ -9,4 +9,10 @@
       $this -> gpu = $gpu;
       $this -> storage = $storage;
     }
+
+    public function getDeviceType($computer) {
+      if($computer instanceof Desktop) {
+        return "Desktop";
+      } return "Laptop";
+    }
   }

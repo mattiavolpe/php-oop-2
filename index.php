@@ -90,7 +90,7 @@
               </div>
               <div class="card-body">
                 <p class="mb-0">
-                  <strong>Type:</strong> <?= getComputerType($computer) ?>
+                  <strong>Type:</strong> <?= $computer -> getDeviceType($computer) ?>
                 </p>
                 <hr>
                 <?php

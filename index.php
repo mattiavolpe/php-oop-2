@@ -59,22 +59,30 @@
         font-family: 'Open Sans', sans-serif;
       }
 
+      strong {
+        color: #FFC107;
+      }
+
       ul {
         list-style: none;
         padding-left: 1rem;
         margin-bottom: 0;
       }
+
+      ul > li > strong {
+        color: #0D6EFD;
+      }
     </style>
   </head>
   
-  <body>
+  <body class="bg-dark">
     
     <main id="app_main" class="py-5">
       <div class="container">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
           <?php foreach($computers as $computer) : ?>
           <div class="col">
-            <div class="card">
+            <div class="card h-100">
               <div class="card-header text-center">
                 <h4 class="mb-0 text-success">
                   <?= $computer -> brand . ": " . $computer -> model; ?>
@@ -84,16 +92,25 @@
                 <p class="mb-0">
                   <strong>Type:</strong> <?= getComputerType($computer) ?>
                 </p>
+                <hr>
                 <?php
                   include __DIR__ . "/views/partials/motherboard.php";
+                  echo "<hr>";
                   include __DIR__ . "/views/partials/ram.php";
+                  echo "<hr>";
                   include __DIR__ . "/views/partials/cpu.php";
+                  echo "<hr>";
                   include __DIR__ . "/views/partials/gpu.php";
+                  echo "<hr>";
                   include __DIR__ . "/views/partials/storage.php";
+                  echo "<hr>";
                   include __DIR__ . "/views/partials/powerSource.php";
                   if($computer instanceof Desktop) {
+                    echo "<hr>";
                     include __DIR__ . "/views/partials/monitor.php";
+                    echo "<hr>";
                     include __DIR__ . "/views/partials/keyboard.php";
+                    echo "<hr>";
                     include __DIR__ . "/views/partials/mouse.php";
                   }
                 ?>

@@ -26,14 +26,6 @@
   include __DIR__ . "/Models/PowerSource.php";
   include __DIR__ . "/Databases/computers.php";
 
-  function getComputerType($computer) {
-    if($computer instanceof Desktop) {
-      return "Desktop";
-    } else {
-      return "Laptop";
-    }
-  }
-
 ?>
 
 <!DOCTYPE html>

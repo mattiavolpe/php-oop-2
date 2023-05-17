@@ -12,124 +12,66 @@
   aggiungere un metodo che stampi la stringa con tutte le info del dispositivo (oltre ai getter/setters necessari).
  */
 
-  class Computer {
-    public function __construct(public string $brand, public string $model, public Motherboard $motherboard, public RAM $ram, public CPU $cpu, public GPU $gpu, public Storage $storage) {
-      $this -> brand = $brand;
-      $this -> model = $model;
-      $this -> motherboard = $motherboard;
-      $this -> ram = $ram;
-      $this -> cpu = $cpu;
-      $this -> gpu = $gpu;
-      $this -> storage = $storage;
+  include __DIR__ . "/Models/Computer.php";
+  include __DIR__ . "/Models/Desktop.php";
+  include __DIR__ . "/Models/Laptop.php";
+  include __DIR__ . "/Models/Motherboard.php";
+  include __DIR__ . "/Models/RAM.php";
+  include __DIR__ . "/Models/CPU.php";
+  include __DIR__ . "/Models/GPU.php";
+  include __DIR__ . "/Models/Storage.php";
+  include __DIR__ . "/Models/Monitor.php";
+  include __DIR__ . "/Models/Keyboard.php";
+  include __DIR__ . "/Models/Mouse.php";
+  include __DIR__ . "/Models/PowerSource.php";
+  include __DIR__ . "/Databases/computers.php";
+
+  function getComputerType($computer) {
+    if($computer instanceof Desktop) {
+      return "DESKTOP";
+    } else {
+      return "LAPTOP";
     }
   }
 
-  class Desktop extends Computer {
-    public function __construct(public string $brand, public string $model, public Motherboard $motherboard, public RAM $ram, public CPU $cpu, public GPU $gpu, public Storage $storage, public Monitor $monitor, public Keyboard $keyboard, public Mouse $mouse, public PowerSource $powerSource) {
-      parent::__construct($brand, $model, $motherboard, $ram, $cpu, $gpu, $storage);
-      $this -> monitor = $monitor;
-      $this -> keyboard = $keyboard;
-      $this -> mouse = $mouse;
-      $this -> powerSource = $powerSource;
-    }
-  }
-
-  class Laptop extends Computer {
-    public function __construct(public string $brand, public string $model, public Motherboard $motherboard, public RAM $ram, public CPU $cpu, public GPU $gpu, public Storage $storage, public PowerSource $powerSource) {
-      parent::__construct($brand, $model, $motherboard, $ram, $cpu, $gpu, $storage);
-      $this -> powerSource = $powerSource;
-    }
-  }
-
-  class Motherboard {
-    public function __construct(public string $brand, public string $model, public string $socket, public int $ramSlots = 2, public string $formatFactor) {
-      $this -> brand = $brand;
-      $this -> model = $model;
-      $this -> socket = $socket;
-      $this -> ramSlots = $ramSlots;
-      $this -> formatFactor = $formatFactor;
-    }
-  }
-
-  class RAM {
-    public function __construct(public string $brand, public string $model, public string $type, public int $banks = 1, public int $frequency, public int $gbPerBank, public int $latency) {
-      $this -> brand = $brand;
-      $this -> model = $model;
-      $this -> type = $type;
-      $this -> banks = $banks;
-      $this -> frequency = $frequency;
-      $this -> gbPerBank = $gbPerBank;
-      $this -> latency = $latency;
-    }
-  }
-
-  class CPU {
-    public function __construct(public string $brand, public string $model, public int $physicalCores, public int $logicalCores, public float $frequency) {
-      $this -> brand = $brand;
-      $this -> model = $model;
-      $this -> physicalCores = $physicalCores;
-      $this -> logicalCores = $logicalCores;
-      $this -> frequency = $frequency;
-    }
-  }
-
-  class GPU {
-    public function __construct(public string $brand, public string $model, public int $frequency, public int $reservedMemory) {
-      $this -> brand = $brand;
-      $this -> model = $model;
-      $this -> frequency = $frequency;
-      $this -> reservedMemory = $reservedMemory;
-    }
-  }
-
-  class Storage {
-    public function __construct(public string $type, public string $brand, public string $model, public int $capacity) {
-      $this -> type = $type;
-      $this -> brand = $brand;
-      $this -> model = $model;
-      $this -> capacity = $capacity;
-    }
-  }
-
-  class Monitor {
-    public function __construct(public string $brand, public string $model, public float $inches, public int $refreshRate) {
-      $this -> brand = $brand;
-      $this -> model = $model;
-      $this -> inches = $inches;
-      $this -> refreshRate = $refreshRate;
-    }
-  }
-
-  class Keyboard {
-    public function __construct(public string $brand, public string $model, public string $type, public bool $numPad) {
-      $this -> brand = $brand;
-      $this -> model = $model;
-      $this -> type = $type;
-      $this -> numPad = $numPad;
-    }
-  }
-
-  class Mouse {
-    public function __construct(public string $brand, public string $model, public int $maxDPI) {
-      $this -> brand = $brand;
-      $this -> model = $model;
-      $this -> maxDPI = $maxDPI;
-    }
-  }
-
-  class PowerSource {
-    public function __construct(public string $type, public string $brand, public string $model, public int $watts) {
-      $this -> type = $type;
-      $this -> brand = $brand;
-      $this -> model = $model;
-      $this -> watts = $watts;
-    }
-  }
-
-  $laptopMSI = new Laptop("MSI", "Modern 15", new Motherboard("MSI", "MB Model", "LG1155", 4, "ATX"), new RAM("G-Skill", "Ripjaws", "DDR4", 2, 3600, 8, 16), new CPU("AMD", "Ryzen 7 5800X", 8, 16, 3.6), new GPU("nVidia", "RTX 2070 Super", 4800, 8), new Storage("SSD", "Samsung", "970 Pro", 1024), new PowerSource("Integrated", "MSI", "PSU Model", 700));
-
-  $desktopDell = new Desktop("Dell", "Dell Model", new Motherboard("Asus", "TUF Gaming", "A44", 4, "ATX"), new RAM("Corsair", "Vengeance", "DDR5", 4, 6000, 8, 21), new CPU("Intel", "i7-1195G7", 8, 8, 3.2), new GPU("nVidia", "RTX 4070", 5000, 16), new Storage("M2", "Western-Digital", "Caviar Black", 2048), new Monitor("Asus", "VG258PQ", 24, 165), new Keyboard("Sharkoon", "Sharkoon Keyboard", "Mechanic", true), new Mouse("Razer", "Deathadder V2", 20000), new PowerSource("Modular", "Seasonic", "Gold 750", 750));
-
-  var_dump($laptopMSI);
-  var_dump($desktopDell);
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+  
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- EXTERNAL BOOTSTRAP CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <title>Computers Tech Specs</title>
+  </head>
+  
+  <body>
+    
+    <main id="app_main">
+      <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+          <?php foreach($computers as $computer) : ?>
+          <div class="col">
+            <div class="card">
+              <?= getComputerType($computer) ?>
+              <?= $computer -> brand; ?>
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+          <?php endforeach; ?>
+        </div>
+        <!-- /.row row-cols-1 row-cols-sm-2 row-cols-md-3 -->
+      </div>
+      <!-- /.container -->
+    </main>
+    <!-- /#app_main -->
+    
+  </body>
+  
+</html>

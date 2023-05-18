@@ -12,12 +12,8 @@
       $this -> storage = $storage;
     }
 
-    public function setDeviceType($computer) {
-      if($computer instanceof Desktop) {
-        $this -> deviceType = "Desktop";
-      } else {
-        $this -> deviceType = "Laptop";
-      }
+    public function setDeviceType() {
+      $this -> deviceType = "Computer";
     }
 
     public function getDeviceType() {

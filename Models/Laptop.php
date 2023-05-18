@@ -5,7 +5,7 @@
       $this -> powerSource = $powerSource;
     }
 
-    public function setDeviceType($computer) {
+    public function setDeviceType() {
       $this -> deviceType = "Laptop";
     }
   }

@@ -13,6 +13,6 @@
     <strong>Logical Cores:</strong> <?= $computer -> cpu -> logicalCores; ?>
   </li>
   <li>
-    <strong>Frequency:</strong> <?= $computer -> cpu -> frequency . "GHz"; ?>
+    <strong>Frequency:</strong> <?= $computer -> cpu -> getFrequency() . "GHz"; ?>
   </li>
 </ul>

@@ -10,8 +10,9 @@
   BONUS:
   pensate a cosa compone un pc: 'ha un' monitor? 'ha una' mbo? 'ha una' keyboard? usate la composizione per indicare costruire appropriatamente le istanze.
   aggiungere un metodo che stampi la stringa con tutte le info del dispositivo (oltre ai getter/setters necessari).
- */
-
+  */
+  
+  include __DIR__ . "/Traits/Frequency.php";
   include __DIR__ . "/Models/Computer.php";
   include __DIR__ . "/Models/Desktop.php";
   include __DIR__ . "/Models/Laptop.php";

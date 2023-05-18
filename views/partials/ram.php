@@ -13,7 +13,7 @@
     <strong>Banks:</strong> <?= $computer -> ram -> banks; ?>
   </li>
   <li>
-    <strong>Frequency:</strong> <?= $computer -> ram -> frequency . "MHz"; ?>
+    <strong>Frequency:</strong> <?= $computer -> ram -> getFrequency() . "MHz"; ?>
   </li>
   <li>
     <strong>Capacity per bank:</strong> <?= $computer -> ram -> gbPerBank . "GB"; ?>

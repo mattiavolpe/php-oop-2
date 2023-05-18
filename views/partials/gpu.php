@@ -7,7 +7,7 @@
     <strong>Model:</strong> <?= $computer -> gpu -> model; ?>
   </li>
   <li>
-    <strong>Frequency:</strong> <?= $computer -> gpu -> frequency . "GHz"; ?>
+    <strong>Frequency:</strong> <?= $computer -> gpu -> getFrequency() . "GHz"; ?>
   </li>
   <li>
     <strong>Reserved Memory:</strong> <?= $computer -> gpu -> reservedMemory . "GB"; ?>

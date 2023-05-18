@@ -6,7 +6,6 @@
     public $model;
     public $type;
     public $banks;
-    // public $frequency;
     public $gbPerBank;
     public $latency;
 
@@ -15,7 +14,6 @@
       $this -> model = $model;
       $this -> type = $type;
       $this -> banks = $banks;
-      // $this -> frequency = $frequency;
       $this -> gbPerBank = $gbPerBank;
       $this -> latency = $latency;
     }

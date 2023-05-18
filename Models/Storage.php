@@ -1,6 +1,11 @@
 <?php
   class Storage {
-    public function __construct(public string $type, public string $brand, public string $model, public int $capacity) {
+    public $type;
+    public $brand;
+    public $model;
+    public $capacity;
+
+    public function __construct(string $type, string $brand, string $model, int $capacity) {
       $this -> type = $type;
       $this -> brand = $brand;
       $this -> model = $model;

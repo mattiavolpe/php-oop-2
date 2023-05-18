@@ -1,6 +1,11 @@
 <?php
   class Monitor {
-    public function __construct(public string $brand, public string $model, public float $inches, public int $refreshRate) {
+    public $brand;
+    public $model;
+    public $inches;
+    public $refreshRate;
+
+    public function __construct(string $brand, string $model, float $inches, int $refreshRate) {
       $this -> brand = $brand;
       $this -> model = $model;
       $this -> inches = $inches;

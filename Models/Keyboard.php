@@ -1,6 +1,11 @@
 <?php
   class Keyboard {
-    public function __construct(public string $brand, public string $model, public string $type, public bool $numPad) {
+    public $brand;
+    public $model;
+    public $type;
+    public $numPad;
+
+    public function __construct(string $brand, string $model, string $type, bool $numPad) {
       $this -> brand = $brand;
       $this -> model = $model;
       $this -> type = $type;

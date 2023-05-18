@@ -1,8 +1,16 @@
 <?php
   class Computer {
-    protected string $deviceType;
+    protected $deviceType;
+    public $brand;
+    public $model;
+    public $motherboard;
+    public $ram;
+    public $cpu;
+    public $gpu;
+    public $storage;
 
-    public function __construct(public string $brand, public string $model, public Motherboard $motherboard, public RAM $ram, public CPU $cpu, public GPU $gpu, public Storage $storage) {
+
+    public function __construct(string $brand, string $model, Motherboard $motherboard, RAM $ram, CPU $cpu, GPU $gpu, Storage $storage) {
       $this -> brand = $brand;
       $this -> model = $model;
       $this -> motherboard = $motherboard;

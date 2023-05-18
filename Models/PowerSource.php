@@ -1,6 +1,11 @@
 <?php
   class PowerSource {
-    public function __construct(public string $type, public string $brand, public string $model, public int $watts) {
+    public $type;
+    public $brand;
+    public $model;
+    public $watts;
+
+    public function __construct(string $type, string $brand, string $model, int $watts) {
       $this -> type = $type;
       $this -> brand = $brand;
       $this -> model = $model;

@@ -1,6 +1,14 @@
 <?php
   class RAM {
-    public function __construct(public string $brand, public string $model, public string $type, public int $banks, public int $frequency, public int $gbPerBank, public int $latency) {
+    public $brand;
+    public $model;
+    public $type;
+    public $banks;
+    public $frequency;
+    public $gbPerBank;
+    public $latency;
+
+    public function __construct(string $brand, string $model, string $type, int $banks, int $frequency, int $gbPerBank, int $latency) {
       $this -> brand = $brand;
       $this -> model = $model;
       $this -> type = $type;

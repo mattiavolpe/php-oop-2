@@ -27,6 +27,16 @@
   include __DIR__ . "/Models/PowerSource.php";
   include __DIR__ . "/Databases/computers.php";
   
+  try {
+    foreach ($computers as $computer) {
+      $computer -> ram -> setFrequency(rand(300, 500) / 100);
+      $computer -> cpu -> setFrequency(rand(300, 500) / 100);
+      $computer -> gpu -> setFrequency(rand(300, 500) / 100);
+    }
+  } catch (Exception $error) {
+    echo $error -> getMessage();
+  }
+  
   foreach ($computers as $computer) {
     $computer -> setDeviceType($computer);
   }
